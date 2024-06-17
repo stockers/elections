@@ -22,14 +22,15 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: change directory
-        run: cd electionsAPI/
-        
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: | 
+          cd ElectionsAPI/
+          dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: | 
+          cd ElectionsAPI/
+          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
