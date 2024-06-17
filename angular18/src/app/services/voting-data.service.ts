@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Person } from '../person/person';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VotingDataService {
 
-  readonly APIUrl = "https://localhost:7287/api";
-  constructor(private http: HttpClient) {}
+  private APIUrl = environment.electionsAPIUrl;
+  
+  constructor(private http: HttpClient) {
+    console.log(this.APIUrl);
+  }
   getVotesByParty(): Observable<any[]> {
       return this.http.get<any>(this.APIUrl + '/VotingResults/VotesByParty');
   }
