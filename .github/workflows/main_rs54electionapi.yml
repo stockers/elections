@@ -5,6 +5,8 @@ name: Build and deploy ASP.Net Core app to Azure Web App - rs54electionapi
 
 on:
   push:
+    paths:
+      - 'electionsAPI/**'
     branches:
       - main
   workflow_dispatch:
