@@ -1,14 +1,17 @@
 {
   "name": "angular18",
   "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.19.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
-  },
-  "private": true,
+  },  
   "dependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
