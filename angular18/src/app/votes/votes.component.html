@@ -1,0 +1,34 @@
+<div class="container">
+
+  <!--
+  <div class="card">
+    
+    <p>Voting Results</p>
+    <ul>
+      <div *ngFor="let v of votingData">
+        <li>{{v.id}} {{v.partyName}} {{v.votes}}</li>
+      </div>
+    </ul>
+  </div>
+-->
+  <div class="card">
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions1" [(update)]="chartUpdateFlag1"
+      [oneToOne]="true" />
+  </div>
+
+  <div class="card">
+    <highcharts-chart *ngIf="chartOptions2.title" [Highcharts]="Highcharts" [options]="chartOptions2"
+      [(update)]="chartUpdateFlag2" [oneToOne]="true" />
+    <div *ngIf="!chartOptions2.title">&lt;&lt; click a party</div>    
+  </div>
+
+  <div class="card">
+    <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions3" [(update)]="chartUpdateFlag3"
+      [oneToOne]="true" />
+  </div>
+
+  <div class="card">
+    <img [src]="this.photoUrl" /><span *ngIf="!chartOptions2.title">&lt;&lt; click a party</span>
+  </div>
+
+</div>

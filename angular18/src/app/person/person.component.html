@@ -1,0 +1,66 @@
+
+<div class="container">
+<div>Town Search: <input type="text" [(ngModel)]="searchText" />
+  <button type="button" class="btn btn-secondary" (click)="refreshPersonList()">Search</button></div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addPerson()" data-keyborad="false">
+  Add Person
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" (click)="closeClick()" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-person [person]="person" *ngIf="activateAddEditPerson">
+        </app-add-edit-person>
+      </div>
+      <!--
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Address Line 1</th>
+          <th>Address Line 2</th>
+          <!--
+            <th>Voting for Party</th>
+            <th>Strength</th>
+          -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of personList">
+        <td>{{dataItem.id}}</td>
+        <td>{{dataItem.firstName}}</td>
+        <td>{{dataItem.lastName}}</td>
+        <td>{{dataItem.addressLine1}}</td>
+        <td>{{dataItem.addressLine2}}</td>
+        <!--
+        <td>{{dataItem.votingForPartyId}}</td>
+        <td>{{dataItem.strength}}</td>
+        -->
+        <td>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          (click)="editPerson(dataItem)">Edit</button>
+            <button type="button" class="btn btn-primary" (click)="deleteClick(dataItem)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
