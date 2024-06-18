@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'angular18/**'
-      - 'azure-static-web-apps-polite-ground-084d7b503.yml'
+      - '.github/workflows/azure-static-web-apps-polite-ground-084d7b503.yml'
     branches:
       - main
   pull_request:
