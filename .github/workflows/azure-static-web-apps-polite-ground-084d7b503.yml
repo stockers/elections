@@ -31,11 +31,16 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_GROUND_084D7B503 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
+          #
+          app_location: './angular18/dist/angular18/browser'
+          api_location: ''
+          output_location: ''
+          skip_app_build: true
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./angular18" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "./dist/angular18" # {angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}" # Built app content directory - optional
+          #app_location: "./angular18" # App source code path
+          #api_location: "" # Api source code path - optional
+          #output_location: "./dist/angular18/browser" # {angular.json#Object.values(data.projects)[0].architect.build.options.outputPath}" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
